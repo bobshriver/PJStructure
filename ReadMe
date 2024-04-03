@@ -1,0 +1,84 @@
+Readme file for code and data associated with Shriver et al. 2024, “Increasing woodland density in the western US over the last 200 years was driven by long-term vegetation demography rather than Euro-American settlement”
+
+#############################
+#Data Files
+#############################
+
+AgeSt2.csv: This is primary data file containing age structure data from PJ sites.
+
+Time- Year indicating the beginning of interval. Unit: Year Common Era (CE)
+
+Talign- Year indicating the beginning of interval used in analysis. Only differs for Tausch paper.  Unit: Year Common Era (CE)
+
+B- Tree establishment in interval. Unit: Varies by publication, either # of trees, proportion of trees, or density of trees that established in interval 
+
+Location- Geographic location of study.
+
+Source- Study citation.
+
+Dataset- Unique identifier for each population. 
+
+Notes- Notes about data source. 
+
+Species: Species censused. Pinus monophylla (PiMo), Pinus edulis (PiEd), Juniperus osteosperma (JuOs), Juniperus occidentalis (JuOc), and mixed stands dominated by Pinus monophylla, with a minor Juniperus osteosperma component (PiMo-JuOs)
+
+Interval: Interval length used for aggregating establishment years. Unit: Years
+
+Full_census: Did census include all trees in the population? Unit: y=yes, n=no.
+
+Census_keep- Should interval be used in analysis? For example, if census interval was incomplete, interval was not used in analysis. Unit: y=yes, n=no.
+
+Census_notes- Notes on census approach.
+
+Time_collected- Year in which data was collected, i.e. census year. Unit: Year Common Era (CE)
+
+Dead_trees Were dead trees censused? Unit: y=yes, n=no.
+
+Census_Offset Years between the end of an interval and the census year. Negative values indicate that census occurred before a interval was complete. Unit: Years
+
+###Climate Reconstruction data###
+TempRecords.csv: Reconstructed temperature records from 1600 CE from Salzer and Kipfmueller 2005
+
+Year- Year of data. Unit: Year CE
+
+MaxTemp- Maximum Temperature. Unit: Degrees Celsius
+
+
+PrecipRecords.csv: Reconstructed precipitation records from 1600 CE from Salzer and Kipfmueller 2005
+
+Year- Year of data. Unit: Year CE
+
+Precip- Precipitation amount. Unit: centimeter
+
+
+
+###Establishment data from other ecosystems###
+
+Archer1989.csv: Establishment dates from Archer 1989. 
+
+Time- Year indicating the beginning of interval. Unit: Year Common Era (CE)
+
+B-Tree establishment in interval under p(wet)=0.3 scenario. Unit: % frequency 
+
+
+
+Mastetal1999.csv: Establishment dates from Mast et al. 1999. 
+
+Time- Year indicating the beginning of interval. Unit: Year Common Era (CE)
+
+B-Tree establishment in interval under p(wet)=0.3 scenario. Unit: Number of trees
+
+#############################
+#Code
+#############################
+
+Analysis.R: This code generates all the figures in the main text. References Functions.R.
+
+SuppFigures.R: This code generates all the supplemental figures. References Functions.R, MastPaper.R, ArcherPaper.R, and code in the AgeSt_mapping folder.
+
+Functions.R: A set of custom functions used in analyses.
+MastPaper.R: Code to calculate per-capita establishment rates from the Mast et al 1999 dataset.
+
+ArcherPaper.R: Code to calculate per-capita establishment rates from the Archer 1989 dataset.
+
+AgeSt_mapping folder: Folder containing code and shape files to generate Fig S1. 
