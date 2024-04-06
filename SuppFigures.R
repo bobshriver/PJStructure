@@ -91,6 +91,7 @@ par(new = TRUE)
 
 species<-unique(agedataall$Species)
 spcol<-alpha(brewer.pal(n = length(species), name = "Set1"),0.5)
+spline<-c(1,2,1,1,2)
 plot(-1,-1,xlim=c(1260,2000),ylim=c(0,1),axes = FALSE, bty = "n", xlab = "", ylab = "")
 axis(side=4, ylim=c(0,1), col.axis="#984EA3" ,col="#984EA3" )
 mtext("Relative population density",side=4,col="#984EA3",line=3) 
@@ -100,11 +101,11 @@ for(i in 1:max(s1$dataset)){
   pop<-s1$Relpop[which(s1$dataset==i)]
   tt<-tt[which(is.na(pop)==F)]
   pop<-pop[which(is.na(pop)==F)]
-  lines(tt+10,pop,lwd=2,col=spcol[which(species==unique(s1$Species[which(s1$dataset==i)])[2])])
+  lines(tt+10,pop,lwd=2,col=spcol[which(species==unique(s1$Species[which(s1$dataset==i)])[2])],lty=spline[which(species==unique(s1$Species[which(s1$dataset==i)])[2])])
   
 }
 legend(1400, 1, legend=species,
-       col=alpha(brewer.pal(n = length(species), name = "Set1"),0.8), cex=0.8,lty=1)   
+       col=alpha(brewer.pal(n = length(species), name = "Set1"),0.8), cex=0.8,lty=spline)   
 fig_label("A",region="plot", cex=2) 
 
 
@@ -157,6 +158,7 @@ par(new = TRUE)
 
 species<-unique(agedataall$Species)
 spcol<-alpha(brewer.pal(n = length(species), name = "Set1"),0.5)
+spline<-c(1,2,1,1,2)
 plot(-1,-1,xlim=c(1600,2000),ylim=c(0,1),axes = FALSE, bty = "n", xlab = "", ylab = "")
 axis(side=4, ylim=c(0,1), col.axis="#984EA3" ,col="#984EA3" )
 mtext("Relative population density",side=4,col="#984EA3",line=3) 
@@ -169,11 +171,11 @@ for(i in 1:max(s.90$dataset)){
   pop<-s.90$Relpop[which(s.90$dataset==i)]
   tt<-tt[which(is.na(pop)==F)]
   pop<-pop[which(is.na(pop)==F)]
-  lines(tt+10,pop,lwd=2,col=spcol[which(species==unique(s.90$Species[which(s.90$dataset==i)])[2])])
+  lines(tt+10,pop,lwd=2,col=spcol[which(species==unique(s.90$Species[which(s.90$dataset==i)])[2])],lty=spline[which(species==unique(s.90$Species[which(s.90$dataset==i)])[2])])
   
 }
 legend(1650, 1, legend=species,
-       col=alpha(brewer.pal(n = length(species), name = "Set1"),0.8), lwd=2,cex=0.8,lty=1) 
+       col=alpha(brewer.pal(n = length(species), name = "Set1"),0.8), lwd=2,cex=0.8,lty=spline) 
 
 par(mar = c(5.5,4.6,.5,4.5))
 
