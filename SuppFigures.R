@@ -146,7 +146,7 @@ barplot(RelCount,space = 0,ylab="Proportion of total establishment",xlab='Year')
 at_tick <- seq_len(length(bins20)) 
 axis(side = 1, at = at_tick - 1, labels = FALSE)
 axis(side = 1, at = seq_along(1:(length(bins20)-1))[c(1,6,11,16)] - 0.5, tick = FALSE, labels = bins20[-length(bins20)][c(1,6,11,16)])
-rect(0, -1000, 12.5, 1000, col=adjustcolor("grey",0.3 ), border='white',lwd=2)
+rect(-10, -1000, 12.5, 1000, col=adjustcolor("grey",0.3 ), border='white',lwd=2)
 rect(12.5, -1000, 2050, 1000, col=adjustcolor("coral", 0.2), border='white',lwd=2)
 
 par(new=T)
