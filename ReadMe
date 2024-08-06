@@ -1,4 +1,4 @@
-Readme file for code and data associated with Shriver et al. 2024, “Increasing woodland density in the western US over the last 200 years was driven by long-term vegetation demography rather than Euro-American settlement”
+Readme file for code and data associated with Shriver et al. 2024, “Long-term tree population growth can predict woody encroachment patterns"
 
 #############################
 #Data Files
@@ -24,6 +24,10 @@ Species: Species censused. Pinus monophylla (PiMo), Pinus edulis (PiEd), Juniper
 
 Interval: Interval length used for aggregating establishment years. Unit: Years
 
+Relative: Binary variable indicating whether establishment data is relativized to the total population size. Unit: 1=yes, 0=no.
+
+DensityCon: Conversion factor based on sample size to convert relativized numbers back to total tree counts. Unitless. 
+
 Full_census: Did census include all trees in the population? Unit: y=yes, n=no.
 
 Census_keep- Should interval be used in analysis? For example, if census interval was incomplete, interval was not used in analysis. Unit: y=yes, n=no.
@@ -34,51 +38,25 @@ Time_collected- Year in which data was collected, i.e. census year. Unit: Year C
 
 Dead_trees Were dead trees censused? Unit: y=yes, n=no.
 
-Census_Offset Years between the end of an interval and the census year. Negative values indicate that census occurred before a interval was complete. Unit: Years
 
-###Climate Reconstruction data###
-TempRecords.csv: Reconstructed temperature records from 1600 CE from Salzer and Kipfmueller 2005
-
-Year- Year of data. Unit: Year CE
-
-MaxTemp- Maximum Temperature. Unit: Degrees Celsius
-
-
-PrecipRecords.csv: Reconstructed precipitation records from 1600 CE from Salzer and Kipfmueller 2005
-
-Year- Year of data. Unit: Year CE
-
-Precip- Precipitation amount. Unit: centimeter
-
-
-
-###Establishment data from other ecosystems###
-
-Archer1989.csv: Establishment dates from Archer 1989. 
-
-Time- Year indicating the beginning of interval. Unit: Year Common Era (CE)
-
-B-Tree establishment in interval under p(wet)=0.3 scenario. Unit: % frequency 
-
-
-
-Mastetal1999.csv: Establishment dates from Mast et al. 1999. 
-
-Time- Year indicating the beginning of interval. Unit: Year Common Era (CE)
-
-B-Tree establishment in interval under p(wet)=0.3 scenario. Unit: Number of trees
+DigCompData.CSV: Repeat measurement from single site
 
 #############################
 #Code
 #############################
 
-Analysis.R: This code generates all the figures in the main text. References Functions.R.
+Analysis.R: This code generates all the figures in the main text. References Bayes folder and Functions.R. 
 
-SuppFigures.R: This code generates all the supplemental figures. References Functions.R, MastPaper.R, ArcherPaper.R, and code in the AgeSt_mapping folder.
+SuppFigures.R: This code generates all the supplemental figures. References Bayes folder, Functions.R., and AgeSt_mapping folder.
 
 Functions.R: A set of custom functions used in analyses.
-MastPaper.R: Code to calculate per-capita establishment rates from the Mast et al 1999 dataset.
 
-ArcherPaper.R: Code to calculate per-capita establishment rates from the Archer 1989 dataset.
+Bayes folder: Folder containing code for bayesian model fitting 
+
+SiteDataPrep.R: Format and run stan model on age structure data
+
+Sim.R: Code to run and fit simulated datasets
+
+SimFit.stan: Stan code to fit demographic model to age structure data. 
 
 AgeSt_mapping folder: Folder containing code and shape files to generate Fig S1. 

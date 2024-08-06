@@ -1,0 +1,30 @@
+Location,Source,Dataset ,Species,lat,long,epsg,Notes,coord_source,mapping_loc
+"Shoshone Mt, NV",Miller et al 2008 RMRS ,1,PiMo-JuOs,39.14657,-117.472,4326,Locations are close,based on description,1
+"East Tintic, UT",Miller et al 2008 RMRS ,2,PiMo-JuOs,40.016667,-112.25,4326,,based on description and general coordinates listed in paper,2
+"Juniper Mountain, ID",Miller et al 2008 RMRS ,3,JuOc,42.44399228,-116.853095,4326,,based on description,3
+"Mt Irish, NV",Biondi and Bradley 2013,4,PiMo,37.644722,-115.4011141,4326,,coordinates listed in paper,4
+"Clover Mountains, NV",Biondi and Bradley 2013,5,PiMo,37.459167,-114.467222,4326,,coordinates listed in paper,5
+"No Man's Mesa, UT",Barger et al. 2009,6,PiEd,37.324444,-112.115,4326,Locations are close,coordinates listed in paper,6
+"Deer Spring Point, UT",Barger et al. 2009,7,PiEd,37.298889,-112.17,4326,Locations are close,coordinates listed in paper,7
+"Shoshone Mt, NV",Bauer 2005,8,PiMo-JuOs,39.093611,-117.493889,4326,Locations are close,coordinates listed in paper,8
+"Uncompahgre Plateau, CO",Shinneman and Baker 2009,9,PiEd,38.37483245,-108.1257778,4326,,based on description and map interpretation,9
+"Uncompahgre Plateau, CO",Shinneman and Baker 2009,10,JuOs,38.37483245,-108.1257778,4326,,based on description and map interpretation,9
+"Anderson Mesa, AZ",Landis and Bailey 2005,11,JuOs,34.82987,-111.22318,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,10
+"Anderson Mesa, AZ",Landis and Bailey 2005,12,PiEd,34.82987,-111.22318,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,10
+"Anderson Mesa, AZ",Landis and Bailey 2005,13,JuOs,34.82987,-111.22318,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,11
+"Anderson Mesa, AZ",Landis and Bailey 2005,14,PiEd,34.82987,-111.22318,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,11
+"Anderson Mesa, AZ",Landis and Bailey 2005,15,JuOs,34.82987,-111.22318,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,12
+"Anderson Mesa, AZ",Landis and Bailey 2005,16,PiEd,34.82987,-111.22318,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,12
+"Dominguez WSA, Uncompaghre Plateau, CO",Eisenhart 2004,17,PiEd,38.69837,-108.37601,4326,,based on description and map interpretation,13
+"Needle Range, Utah",Tausch and West 1988,18,JuOs,38.26585,-113.81566,4326,,based on description and map interpretation,14
+"Needle Range, Utah",Tausch and West 1988,19,PiMo,38.26585,-113.81566,4326,,based on description and map interpretation,14
+"Lava Beds, National Monument, CA",Miller et al 2003,20,JuOc,41.77419943,-121.5067888,4326,,based on description,15
+"Mocassin Mesa, Mesa Verde National Park, CO",Floyd et al. 2004,21,PiEd,37.2306,-108.46012,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,16
+"Big Mesa Fire, Mesa Verde National Park, CO",Floyd et al. 2004,22,PiEd,37.22513,-108.35884,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,17
+"Lower Chapin Mesa, Mesa Verde NP, CO",Floyd et al. 2004,23,PiEd,37.14964,-108.48759,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,18
+"Park Entrance, Mesa Verde NP, CO",Floyd et al. 2004,24,PiEd,37.33168,-108.41051,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,19
+"Park Mesa, Mesa Verde NP, CO",Floyd et al. 2004,25,PiEd,37.21064,-108.47694,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,20
+"Cedar Tree Tower, Mesa Verde NP, CO",Floyd et al. 2004,26,PiEd,37.19772,-108.48209,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,21
+"Waters Canyon Menefee Shale, Mesa Verde NP, CO",Floyd et al. 2004,27,PiEd,37.23539,-108.37464,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,22
+"Wetherill Mesa, Mesa Verde NP, CO",Floyd et al. 2004,28,PiEd,37.20053,-108.54114,4326,Locations are close or in distinguishable from each other,based on description and map interpretation,23
+"Mt Irish, NV",Biondi and Bradley 2013,29,JuOs,37.644722,-115.4011141,4326,,coordinates listed in paper,4
