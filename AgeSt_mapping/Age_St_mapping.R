@@ -109,9 +109,9 @@ map<-ggplot(states) +
   # geom_sf(data = clm.point, aes(shape = 'Temperature Data'), col = 'red', fill = 'red', alpha = 0.6, size = .7) +
   # 
   # study locs
-  geom_sf(data = jtr.point, aes(col = 'Study Locations'), pch = 1, size = .7) +
-  geom_sf(data = lo.jtr.point, aes(col = 'Study Locations'), pch = 1, size = .7) +
-  geom_sf(data = non.jtr.point, aes(col = 'Study Locations'), pch = 1, size = .7) +
+  geom_sf(data = jtr.point, aes(col = 'Study Locations'), pch = 1, size = 1) +
+  geom_sf(data = lo.jtr.point, aes(col = 'Study Locations'), pch = 1, size = 1) +
+  geom_sf(data = non.jtr.point, aes(col = 'Study Locations'), pch = 1, size = 1) +
   
   #scale_shape_manual(name = '', values = 23, labels = 'Temperature Reconstructions') +
   scale_color_manual(name = '', values = col2) +

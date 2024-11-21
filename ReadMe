@@ -41,15 +41,18 @@ Dead_trees Were dead trees censused? Unit: y=yes, n=no.
 
 ###Establishment data from other ecosystems###
 
-Archer1989.csv: Establishment dates from Archer 1989. 
+Mastetal1999.csv: Establishment dates from Mast et al 1999. 
 
-Time- Year indicating the beginning of interval. Unit: Year Common Era (CE)
+Year- Year indicating the beginning of interval. Unit: Year Common Era (CE)
 
-B-Tree establishment in interval under p(wet)=0.3 scenario. Unit: % frequency 
+B-Tree establishment in intervall 
 
 
 DigCompData.CSV: Repeat measurement from single site
 
+PJstructure_Clim_Normals_all_months: Climate data from PJ age structure sites
+
+FIA_Clim_Normals: Climate data from FIA plots that contain one of the PJ species used in this study
 #############################
 #Code
 #############################
@@ -60,7 +63,7 @@ SuppFigures.R: This code generates all the supplemental figures. References Baye
 
 Functions.R: A set of custom functions used in analyses.
 
-ArcherPaper.R: Code to calculate per-capita establishment rates from the Archer 1989 dataset.
+MastPaper.R: Code to calculate per-capita establishment rates from the Mast et al. 1999 dataset.
 
 
 Bayes folder: Folder containing code for bayesian model fitting 
@@ -72,5 +75,4 @@ Sim.R: Code to run and fit simulated datasets
 SimFit.stan: Stan code to fit demographic model to age structure data. 
 
 
-
-AgeSt_mapping folder: Folder containing code and shape files to generate Fig S1. 
+AgeSt_mapping folder: Folder containing code and shape files to generate Fig 2A. 

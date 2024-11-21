@@ -1,5 +1,5 @@
 Location,Source,Dataset ,Species,lat,long,epsg,Notes,coord_source,mapping_loc
-"Shoshone Mt, NV",Miller et al 2008 RMRS ,1,PiMo-JuOs,39.14657,-117.472,4326,Locations are close,based on description,1
+"Shoshone Mt, NV",Miller et al 2008 RMRS ,1,PiMo-JuOs,39.12717,-117.44315,4326,Locations are close,"based on description, and elevational range",1
 "East Tintic, UT",Miller et al 2008 RMRS ,2,PiMo-JuOs,40.016667,-112.25,4326,,based on description and general coordinates listed in paper,2
 "Juniper Mountain, ID",Miller et al 2008 RMRS ,3,JuOc,42.44399228,-116.853095,4326,,based on description,3
 "Mt Irish, NV",Biondi and Bradley 2013,4,PiMo,37.644722,-115.4011141,4326,,coordinates listed in paper,4
