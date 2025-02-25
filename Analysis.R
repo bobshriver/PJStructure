@@ -66,7 +66,7 @@ bins20<-seq(1600,2000,by=20)#Calculate mean temp for each
 
 source('bayes/SiteDataPrep.R')###To fit Bayesian model for establishment rate. This takes about 10 minutes to run on my mac
 #Save model fits
-#save.image(file='Fitmodels_Rev.RData')###Can also be used to load fit models
+#save.image(file='Fitmodels_Rev.RData')
 
 specieslist<-numeric(NPops)
 for(i in 1:NPops){
@@ -158,7 +158,7 @@ axis(side=4, ylim=c(0,1), col.axis="#984EA3" ,col="#984EA3" )
 mtext("Cumulative establishment",side=4,col="#984EA3",line=3) 
 
 
-abline(h=.5,lty=2,col="#984EA3")
+#abline(h=.5,lty=2,col="#984EA3")
 splist<-numeric(29)
 for(i in 1:max(s1$dataset)){ #plot cumulative est. in each dataset
   tt<-s1$Time[which(s1$dataset==i)]
@@ -214,7 +214,7 @@ for (i in 1:3000){
     Bvaltot[i,(miny:stime[p,2])-17,p]<-B 
     Bpredvaltot[i,(miny:stime[p,2])-17,p]<-Bpred
     
-    bratio[i,(miny:stime[p,2])-17,p]<-Bpred/B ###Relative diff. (Changing-constant/constant)
+    bratio[i,(miny:stime[p,2])-17,p]<-Bpred/B ###Constant/Changing
     
     
   }  
@@ -251,7 +251,7 @@ text(x=1780,y=.08,"Proportion of variance explained",cex=0.75)
 text(x=1715,y=.19,"# of populations",cex=0.75,srt=90)
 
 par(mar = c(4.5,5,1.5,2.5))
-matplot(seq(1600,1980,20),apply(bratio,c(2,3),median,na.rm=T),log='y',ylim=c(.2,5),type='l',col=spcol[match(specieslist,species)],lty=spline[match(specieslist,species)],lwd=1.5, ylab='Proportion of recruitment explained', xlab='Year (CE)')
+matplot(seq(1600,1980,20),apply(bratio,c(2,3),median,na.rm=T),log='y',ylim=c(.2,5),type='l',col=spcol[match(specieslist,species)],lty=spline[match(specieslist,species)],lwd=1.5, ylab='Ratio of establishement', xlab='Year (CE)', cex.lab=0.85)
 polygon(c(seq(1600,1980,20),rev(seq(1600,1980,20))),c((ratiomedianupper),rev((ratiomedianlower))),col = alpha("grey75",.75), border = FALSE)
 lines(seq(1600,1980,20),ratiomedian,lwd=3)
 
@@ -281,16 +281,16 @@ matplot(seq(1600,1980,by=20),t(sout.use[,18:37,15]),type='l',lty=1,lwd=.1,ylab="
 fig_label("A",region="plot", cex=2) 
 par(mar = c(4.5,5,1.5,2.5))
 
-matplot(seq(1600,1980,by=20),t(bout.use[,18:37,15]),type='l',lty=1,lwd=.1, ylim=c(0,3.7), xlab='Year (CE)',ylab="Establishment Rate")
+matplot(seq(1600,1980,by=20),t(bout.use[,18:37,15]),type='l',lty=1,lwd=.1, ylim=c(0,1.5), xlab='Year (CE)',ylab="Establishment Rate")
 fig_label("B",region="plot", cex=2) 
-text(x=1915,y=.75,"Survival Rate",cex=0.75)
-text(x=1845,y=2.75,"Estab. Rate",cex=0.75,srt=90)
+text(x=1915,y=.31,"Survival Rate",cex=0.75)
+text(x=1845,y=1.1,"Estab. Rate",cex=0.75,srt=90)
 
 
 par(fig = c(0.7,.85,0.29,.44), new = TRUE,mar = c(0,0,0,0),cex.lab=0.75, cex.axis=0.75,mgp=c(3,1,0))
 
-plot(sout.use,bout.use,col="black",cex=.01,pch=19)
-text(.6,10,paste("r=",round(cor(c(sout.use),c(bout.use),use='pairwise.complete.obs'),2)),cex=0.75)
+plot(sout.use,bout.use,col="black",cex=.01,pch=19,ylim=c(0,8))
+text(.6,6,paste("r=",round(cor(c(sout.use),c(bout.use),use='pairwise.complete.obs'),2)),cex=0.75)
 fig_label("C",region="plot", cex=1) 
 
 dev.off()

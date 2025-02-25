@@ -20,10 +20,15 @@ fit1<-stan(file='bayes/SimFit.stan',data=modeldata, chains=3,iter=2000, init=ini
 pars<-rstan::extract(fit1,pars=c('b','N','s'))
 
 
-#par(mfrow=c(2,1),mar = c(4,4,1,1))
+par(mfrow=c(2,1),mar = c(4,4,1,1))
 
 plot(years[-22],apply(pars$b,2,median),type='l',ylim=c(-0.3,25),lwd=2,xlab='Year',ylab=expression("Establishment rate (20yrs"^-1~")"))
 lines(years[-22],apply(pars$b,2,quantile,prob=0.975),type='l',lty=2,lwd=2)
 lines(years[-22],apply(pars$b,2,quantile,prob=0.025),type='l',lty=2,lwd=2)
-#fig_label("A",region="plot", cex=2) 
+fig_label("A",region="plot", cex=2) 
+
+
+plot(years[-22],B,type='h',lwd=20,lend=1, ylab="Establishment (# of trees)",xlab='Year',cex.lab=0.8, log='y')
+text(1555,10000,"B", cex=2) 
+
 

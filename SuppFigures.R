@@ -13,6 +13,7 @@ source("Functions.R")
 ###Read in fit models and data from the Analysis Script###
 #load('Fitmodels_Rev.Rdata') ###Modelfits already run
 
+species<-unique(agedataall$Species)
 
 s1<-sconstant(agedataall20,srate=1) 
 spcol<-alpha(brewer.pal(n = length(species), name = "Set1"),0.7)
@@ -34,7 +35,7 @@ for(p in 1:NPops){
 dev.off()
 
 
-####Fig. S2#### Full Time serie
+####Fig. S2#### Full Time series
 s1<-s1[which(s1$dataset<30),]
 
 tiff("FigS2.tiff",width = 9,height=6,units="in", res=300)    
@@ -68,7 +69,7 @@ axis(side=4, ylim=c(0,1), col.axis="#984EA3" ,col="#984EA3" )
 mtext("Cumulative establishment",side=4,col="#984EA3",line=3) 
 
 
-abline(h=.5,lty=2,col="#984EA3")
+#abline(h=.5,lty=2,col="#984EA3")
 
 for(i in 1:max(s1$dataset)){ #plot relative popualtion size in each dataset
   tt<-s1$Time[which(s1$dataset==i)]
@@ -114,17 +115,96 @@ for (i in 1:32){
 dev.off()
 
 
+#######Fig S4######### Probability of exceedance
+
+prob.out<-array(NA,c(3000,20,30))
+
+for (p in 1:3000){
+  for (i in 1:29){
+    prob.out[p,,i]<-max(bout.use[p,post1600,i][1:13], na.rm=T)<bout.use[p,post1600,i][1:20]
+    
+  }}
+
+
+source('MastPaper.R') ##Sources separate script to create figure
+i=30
+for (p in 1:3000){
+  prob.out[p,,i]<-max(pars$b[p,-(1:2)][1:13], na.rm=T)<pars$b[p,-(1:2)][1:20]
+}
+
+tiff("FigS4.tiff",width = 7,height=8, units="in", res=300)    
+
+par(mfrow=c(3,1),mar = c(1.5,5,2.5,2.5))
+
+Probmat<-apply(prob.out,c(2,3),sum)/3000
+matplot(seq(1840,1980,20),1.0003-Probmat[13:20,],type='l',xlab="Year (CE)", lwd=2, log='y', ylab="1-Probability of Exceedance", yaxt='n',col=c(spcol[match(specieslist,species)][1:29],'black'),lty=c(spline[match(specieslist,species)][1:29],1))
+axis(2, at = c(0.05,0.01,0.001,0.0003),
+     labels = c("0.05", "0.01","0.001", "<0.0003"),las=1,cex.axis=.8)
+abline(h=.05, col='tomato', lty=2, lwd=4)
+text(1838,.5,"A", cex=2) 
+legend(1840, .01, legend=c(species,"PiPo"),
+       col=c(alpha(brewer.pal(n = length(species), name = "Set1"),0.8),"black"), lwd=2,cex=0.8,lty=c(spline,1)) 
+
+
+####1840#####
+
+prob.out<-array(NA,c(3000,20,30))
+
+for (p in 1:3000){
+  for (i in 1:29){
+    prob.out[p,,i]<-max(bout.use[p,post1600,i][1:12], na.rm=T)<bout.use[p,post1600,i][1:20]
+    
+  }}
+
+
+i=30
+for (p in 1:3000){
+  prob.out[p,,i]<-max(pars$b[p,-(1:2)][1:12], na.rm=T)<pars$b[p,-(1:2)][1:20]
+}
+
+
+Probmat<-apply(prob.out,c(2,3),sum)/3000
+matplot(seq(1840,1980,20),1.0003-Probmat[13:20,],type='l',xlab="Year (CE)", lwd=2, log='y', ylab="1-Probability of Exceedance", yaxt='n',col=c(spcol[match(specieslist,species)][1:29],'black'),lty=c(spline[match(specieslist,species)][1:29],1))
+axis(2, at = c(0.05,0.01,0.001,0.0003),
+     labels = c("0.05", "0.01","0.001", "<0.0003"),las=1,cex.axis=.8)
+abline(h=.05, col='tomato', lty=2, lwd=4)
+text(1838,.5,"B", cex=2) 
+##########1880######
+
+prob.out<-array(NA,c(3000,20,30))
+
+for (p in 1:3000){
+  for (i in 1:29){
+    prob.out[p,,i]<-max(bout.use[p,post1600,i][1:14], na.rm=T)<bout.use[p,post1600,i][1:20]
+    
+  }}
+
+
+i=30
+for (p in 1:3000){
+  prob.out[p,,i]<-max(pars$b[p,-(1:2)][1:14], na.rm=T)<pars$b[p,-(1:2)][1:20]
+}
+
+par(mar = c(5,5,2.5,2.5))
+Probmat<-apply(prob.out,c(2,3),sum)/3000
+matplot(seq(1840,1980,20),1.0003-Probmat[13:20,],type='l',xlab="Year (CE)", lwd=2, log='y', ylab="1-Probability of Exceedance", yaxt='n',col=c(spcol[match(specieslist,species)][1:29],'black'),lty=c(spline[match(specieslist,species)][1:29],1))
+axis(2, at = c(0.05,0.01,0.001,0.0003),
+     labels = c("0.05", "0.01","0.001", "<0.0003"),las=1,cex.axis=.8)
+abline(h=.05, col='tomato', lty=2, lwd=4)
+text(1838,.5,"C", cex=2) 
+
+
+dev.off()
+#############
 
 
 
 
 
-
-
-####### Fig S4##### Compare establishment with constant rates
+####### Fig S5##### Compare establishment with constant rates
 Bval<-array(NA,c(3000,20,29))
 Bpredval<-array(NA,c(3000,20,29))
-tiff("FigS4.tiff",width = 8,height=12,units="in", res=300)    
+tiff("FigS5.tiff",width = 8,height=12,units="in", res=300)    
 par(mfrow=c(8,4),  mar = c(4,4,1,1))
 for(p in 1:29){
   
@@ -161,7 +241,7 @@ dev.off()
 #source('Bayes/Sim.R') ###This will take a while to run 10-30minutes, need to run to create workspace file below
 load('Bayes/Simulations.Rdata') ###Simulations already run
 
-tiff("FigS5.tiff",width = 8,height=8,units="in", res=300)    
+tiff("FigS6.tiff",width = 8,height=8,units="in", res=300)    
 
 
 bmedian<-apply(best,c(1,3),median)
@@ -194,7 +274,7 @@ fig_label("C",region="plot", cex=2)
 dev.off()
 
 ######################
-tiff("FigS6.tiff",width = 8,height=4,units="in", res=300)    
+tiff("FigS7.tiff",width = 8,height=4,units="in", res=300)    
 
 
 par(mfrow=c(1,2))
@@ -208,31 +288,15 @@ text(.41,.97,"B", cex=2)
 
 dev.off()
 
-######Fig. S7####
+######Fig. S8####
 
 
-tiff("FigS7.tiff",width = 8,height=3.5,units="in", res=300)    
+tiff("FigS8.tiff",width = 8,height=7,units="in", res=300)    
 source('MastPaper.R') ##Sources separate script to create figure
 dev.off()
 
 
 ####
-
-################
-
-####Fig S8####
-###Digitization errors###
-digdata<-read.csv('DigCompData.csv')
-tiff("FigS8.tiff",width = 8,height=3.5,units="in", res=300)    
-
-par(mfrow=c(1,2))
-plot(digdata$Time,digdata$B1,pch=1, col='Steelblue', xlab="Year (CE)", ylab='Establishment')
-points(digdata$Time,digdata$B2,pch=3, col='Coral')
-fig_label("A",region="plot", cex=2) 
-plot(digdata$B1,digdata$B2,pch=19, col='Steelblue', xlab="Measurement 1", ylab="Measurement 2")
-abline(0,1)
-fig_label("B",region="plot", cex=2) 
-dev.off()
 
 ######Fig S9: Climate mapping####
 
@@ -256,6 +320,22 @@ ggsave('FigS9.tiff', plot=ClimateMap, device="tiff",width = 6, height = 5, dpi =
 
 ########
 
-####Fig S10###
+################
+
+####Fig S10####
+###Digitization errors###
+digdata<-read.csv('DigCompData.csv')
+tiff("FigS10.tiff",width = 8,height=3.5,units="in", res=300)    
+
+par(mfrow=c(1,2))
+plot(digdata$Time,digdata$B1,pch=1, col='Steelblue', xlab="Year (CE)", ylab='Establishment')
+points(digdata$Time,digdata$B2,pch=3, col='Coral')
+fig_label("A",region="plot", cex=2) 
+plot(digdata$B1,digdata$B2,pch=19, col='Steelblue', xlab="Measurement 1", ylab="Measurement 2")
+abline(0,1)
+fig_label("B",region="plot", cex=2) 
+dev.off()
+
+####Fig S11###
 ##Made by rerunning Fig 2 code with models fit with Uniform(1,1000) prior
 
